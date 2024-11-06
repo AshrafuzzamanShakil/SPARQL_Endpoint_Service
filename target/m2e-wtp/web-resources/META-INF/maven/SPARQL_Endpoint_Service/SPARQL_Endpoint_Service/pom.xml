@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>SPARQL_Endpoint_Service</groupId>
+    <artifactId>SPARQL_Endpoint_Service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <javax.servlet-api-scope>provided</javax.servlet-api-scope>
+        <maven.compiler.release>17</maven.compiler.release> <!-- Adjusted to 17 for compatibility with servlet -->
+    </properties>
+    
+    <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-bom</artifactId>
+            <version>3.7.7</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+
+    <dependencies>
+        <!-- RDF4J Core Dependency -->
+
+    <!-- Core RDF4J Model -->
+    <dependency>
+        <groupId>org.eclipse.rdf4j</groupId>
+        <artifactId>rdf4j-model</artifactId>
+        </dependency>
+
+    <!-- Repository API -->
+    <dependency>
+        <groupId>org.eclipse.rdf4j</groupId>
+        <artifactId>rdf4j-repository-api</artifactId>
+        </dependency>
+
+    <!-- SPARQL Repository -->
+    <dependency>
+        <groupId>org.eclipse.rdf4j</groupId>
+        <artifactId>rdf4j-repository-sparql</artifactId>
+        
+    </dependency>
+
+    <!-- HTTP Client for Remote Repositories -->
+    <dependency>
+        <groupId>org.eclipse.rdf4j</groupId>
+        <artifactId>rdf4j-http-client</artifactId>
+        
+    </dependency>
+
+
+        <!-- JSP API (provided by Tomcat at runtime) -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+            <scope>${javax.servlet-api-scope}</scope>
+        </dependency>
+        
+        <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+</dependency>
+
+        
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
